@@ -1,0 +1,30 @@
+
+<div  ng-controller="MovieCntrl">
+<div> 
+    <div class="align-middle">
+       <div style=" position: absolute;
+        top: 18%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)" > 
+    <input  type="text" ng-model="movieName" placeholder="Enter the Movie Name..">
+    <button ng-click="createMovie(movieName)" 
+    ng-show="isEditting"> Create Movie </button> 
+    
+    <button ng-click="updateMovie(movieName)"
+    ng-show="!isEditting"> Update Movie</button>
+    </div>
+    <br>
+    <br>
+        <div class="row align-items-center" ng-show="movies.length > 0">
+             <table class="table table-striped"  class="col" border="1px solid" style="border-collapse: collapse; margin: 30px ; width: 70%">
+                 <tr><th> Movies </th><th>Edit</th><th>Delete</th></tr>
+                 <tr ng-repeat="movie in movies">
+                     <td> {{movie.movieName}}</td>
+                     <td> <button class="btn btn-outline-primary btn-md" ng-click="edit(movie)">Edit</button></td>
+                     <td> <button class="btn btn-outline-danger btn-md" ng-click="delete(movie)"> Delete </button></td>
+                 </tr>
+            </table>
+        </div>
+    </div> 
+</div>
